@@ -1,0 +1,936 @@
+{
+  "ftp://controller_app_dev@rillsoft-dev.cloud:21": {
+    ".htaccess": {
+      "type": "-",
+      "size": 1,
+      "lmtime": 0,
+      "modified": false
+    },
+    ".user.ini": {
+      "type": "-",
+      "size": 51,
+      "lmtime": 0,
+      "modified": false
+    },
+    ".well-known": {},
+    "404.html": {
+      "type": "-",
+      "size": 138,
+      "lmtime": 0,
+      "modified": false
+    },
+    "arquivos": {},
+    "atzpdv": {},
+    "backup-sistemas-rillsoft-23-05-2023.zip": {
+      "type": "-",
+      "size": 60,
+      "lmtime": 0,
+      "modified": false
+    },
+    "controller": {
+      "Nova pasta": {},
+      "Não confirmado 436845.crdownload": {
+        "type": "-",
+        "size": 29217,
+        "lmtime": 0,
+        "modified": false
+      },
+      "Ofx.php": {
+        "type": "-",
+        "size": 2831,
+        "lmtime": 0,
+        "modified": false
+      },
+      "PHPExcel": {},
+      "PHPExcel.php": {
+        "type": "-",
+        "size": 31533,
+        "lmtime": 0,
+        "modified": false
+      },
+      "PHPMailer-master": {},
+      "arquivosimportacao": {},
+      "autoloader.php": {
+        "type": "-",
+        "size": 350,
+        "lmtime": 0,
+        "modified": false
+      },
+      "auxiliares.php": {
+        "type": "-",
+        "size": 15220,
+        "lmtime": 1689010130158.4363,
+        "modified": false
+      },
+      "barcode.inc.php": {
+        "type": "-",
+        "size": 3345,
+        "lmtime": 0,
+        "modified": false
+      },
+      "barcode_00000009.gif": {
+        "type": "-",
+        "size": 494,
+        "lmtime": 0,
+        "modified": false
+      },
+      "barcode_00000120.gif": {
+        "type": "-",
+        "size": 498,
+        "lmtime": 0,
+        "modified": false
+      },
+      "bolsoft-guga": {},
+      "buscarcep.php": {
+        "type": "-",
+        "size": 3154,
+        "lmtime": 0,
+        "modified": false
+      },
+      "catalago": {},
+      "classes": {},
+      "cronjob": {},
+      "dashboard--.php": {
+        "type": "-",
+        "size": 5875,
+        "lmtime": 0,
+        "modified": false
+      },
+      "dashboard.php": {
+        "type": "-",
+        "size": 8660,
+        "lmtime": 1689362710205.0469,
+        "modified": false
+      },
+      "dompdf": {},
+      "funcoes (2).php": {
+        "type": "-",
+        "size": 107966,
+        "lmtime": 0,
+        "modified": false
+      },
+      "funcoes (3).php": {
+        "type": "-",
+        "size": 65055,
+        "lmtime": 0,
+        "modified": false
+      },
+      "funcoes-guga.php": {
+        "type": "-",
+        "size": 284978,
+        "lmtime": 0,
+        "modified": false
+      },
+      "funcoes.php": {
+        "type": "-",
+        "size": 312345,
+        "lmtime": 1687204252363.3079,
+        "modified": true
+      },
+      "funcoes_sa.php": {
+        "type": "-",
+        "size": 60042,
+        "lmtime": 0,
+        "modified": true
+      },
+      "funcoes_safra.php": {
+        "type": "-",
+        "size": 30665,
+        "lmtime": 0,
+        "modified": false
+      },
+      "funcoes_sav2.php": {
+        "type": "-",
+        "size": 60472,
+        "lmtime": 0,
+        "modified": true
+      },
+      "funcoespdvweb.php": {
+        "type": "-",
+        "size": 146943,
+        "lmtime": 0,
+        "modified": false
+      },
+      "funcoespdvwebv2.php": {
+        "type": "-",
+        "size": 157748,
+        "lmtime": 0,
+        "modified": true
+      },
+      "gbl": {},
+      "importadores": {},
+      "imppedgugateste.php": {
+        "type": "-",
+        "size": 77490,
+        "lmtime": 0,
+        "modified": false
+      },
+      "ofx": {},
+      "openboleto-master": {},
+      "phpcads": {},
+      "rotinagarantiasfor.php": {
+        "type": "-",
+        "size": 16733,
+        "lmtime": 1685385400830.1611,
+        "modified": false
+      },
+      "rotinaremessabanco.php": {
+        "type": "-",
+        "size": 6138,
+        "lmtime": 0,
+        "modified": false
+      },
+      "rotinasnf.php": {
+        "type": "-",
+        "size": 111945,
+        "lmtime": 0,
+        "modified": true
+      },
+      "rotinaspdvweb": {},
+      "rotinasusuario.php": {
+        "type": "-",
+        "size": 20937,
+        "lmtime": 1689363233884.1594,
+        "modified": false
+      },
+      "rotinatarefas.php": {
+        "type": "-",
+        "size": 9792,
+        "lmtime": 0,
+        "modified": false
+      },
+      "rrb": {},
+      "rtcadadicionais.php": {
+        "type": "-",
+        "size": 8884,
+        "lmtime": 1686069901816.5356,
+        "modified": true
+      },
+      "rtcadbairros copy.php": {
+        "type": "-",
+        "size": 4077,
+        "lmtime": 0,
+        "modified": false
+      },
+      "rtcadbairros.php": {
+        "type": "-",
+        "size": 4080,
+        "lmtime": 0,
+        "modified": false
+      },
+      "rtcadbancos.php": {
+        "type": "-",
+        "size": 4788,
+        "lmtime": 0,
+        "modified": false
+      },
+      "rtcadbandeirascredito.php": {
+        "type": "-",
+        "size": 5327,
+        "lmtime": 0,
+        "modified": false
+      },
+      "rtcadcategorias.php": {
+        "type": "-",
+        "size": 4100,
+        "lmtime": 0,
+        "modified": false
+      },
+      "rtcadcentroscustos.php": {
+        "type": "-",
+        "size": 4153,
+        "lmtime": 0,
+        "modified": false
+      },
+      "rtcadcests.php": {
+        "type": "-",
+        "size": 4385,
+        "lmtime": 0,
+        "modified": false
+      },
+      "rtcadcfops.php": {
+        "type": "-",
+        "size": 4342,
+        "lmtime": 0,
+        "modified": false
+      },
+      "rtcadchecklist.php": {
+        "type": "-",
+        "size": 4153,
+        "lmtime": 0,
+        "modified": false
+      },
+      "rtcadclassesimpostos.php": {
+        "type": "-",
+        "size": 11840,
+        "lmtime": 0,
+        "modified": true
+      },
+      "rtcadclientes.php": {
+        "type": "-",
+        "size": 43869,
+        "lmtime": 1686069804074.6763,
+        "modified": false
+      },
+      "rtcadclinte02.php": {
+        "type": "-",
+        "size": 6933,
+        "lmtime": 0,
+        "modified": false
+      },
+      "rtcadcobradores.php": {
+        "type": "-",
+        "size": 9258,
+        "lmtime": 1686069638511.6113,
+        "modified": false
+      },
+      "rtcadcobrancasbancarias.php": {
+        "type": "-",
+        "size": 56569,
+        "lmtime": 0,
+        "modified": true
+      },
+      "rtcadconferencias.php": {
+        "type": "-",
+        "size": 23250,
+        "lmtime": 0,
+        "modified": false
+      },
+      "rtcadcontador.php": {
+        "type": "-",
+        "size": 5332,
+        "lmtime": 0,
+        "modified": false
+      },
+      "rtcadcontas.php": {
+        "type": "-",
+        "size": 4642,
+        "lmtime": 0,
+        "modified": false
+      },
+      "rtcadcontasbancarias.php": {
+        "type": "-",
+        "size": 13579,
+        "lmtime": 0,
+        "modified": false
+      },
+      "rtcadcotacoes.php": {
+        "type": "-",
+        "size": 12032,
+        "lmtime": 0,
+        "modified": false
+      },
+      "rtcaddesossa.php": {
+        "type": "-",
+        "size": 37151,
+        "lmtime": 0,
+        "modified": true
+      },
+      "rtcadestados.php": {
+        "type": "-",
+        "size": 5061,
+        "lmtime": 0,
+        "modified": false
+      },
+      "rtcadestoques.php": {
+        "type": "-",
+        "size": 4102,
+        "lmtime": 0,
+        "modified": false
+      },
+      "rtcadfiliais.php": {
+        "type": "-",
+        "size": 28584,
+        "lmtime": 0,
+        "modified": true
+      },
+      "rtcadformaspagamento.php": {
+        "type": "-",
+        "size": 8058,
+        "lmtime": 0,
+        "modified": false
+      },
+      "rtcadformulas.php": {
+        "type": "-",
+        "size": 7437,
+        "lmtime": 0,
+        "modified": false
+      },
+      "rtcadfornecedores.php": {
+        "type": "-",
+        "size": 10792,
+        "lmtime": 0,
+        "modified": true
+      },
+      "rtcadgarantias.php": {
+        "type": "-",
+        "size": 16690,
+        "lmtime": 0,
+        "modified": false
+      },
+      "rtcadgrupos.php": {
+        "type": "-",
+        "size": 4074,
+        "lmtime": 0,
+        "modified": false
+      },
+      "rtcadgruposplanoscontas.php": {
+        "type": "-",
+        "size": 8023,
+        "lmtime": 0,
+        "modified": false
+      },
+      "rtcadgrupossaidaspdv.php": {
+        "type": "-",
+        "size": 4167,
+        "lmtime": 0,
+        "modified": false
+      },
+      "rtcadgruposusuarios.php": {
+        "type": "-",
+        "size": 4323,
+        "lmtime": 0,
+        "modified": false
+      },
+      "rtcadhistoricospadroes.php": {
+        "type": "-",
+        "size": 4178,
+        "lmtime": 0,
+        "modified": false
+      },
+      "rtcadinformacoescomplementares.php": {
+        "type": "-",
+        "size": 4421,
+        "lmtime": 0,
+        "modified": false
+      },
+      "rtcadlancamentosfluxo.php": {
+        "type": "-",
+        "size": 28625,
+        "lmtime": 1689011033794.4094,
+        "modified": false
+      },
+      "rtcadlancamentospdvs.php": {
+        "type": "-",
+        "size": 44182,
+        "lmtime": 0,
+        "modified": false
+      },
+      "rtcadlocalizacoes.php": {
+        "type": "-",
+        "size": 4649,
+        "lmtime": 0,
+        "modified": false
+      },
+      "rtcadmarcas.php": {
+        "type": "-",
+        "size": 4074,
+        "lmtime": 0,
+        "modified": false
+      },
+      "rtcadmotoristas.php": {
+        "type": "-",
+        "size": 9567,
+        "lmtime": 0,
+        "modified": false
+      },
+      "rtcadmunicipios.php": {
+        "type": "-",
+        "size": 4793,
+        "lmtime": 0,
+        "modified": false
+      },
+      "rtcadnaturezasoperacoes.php": {
+        "type": "-",
+        "size": 4195,
+        "lmtime": 0,
+        "modified": false
+      },
+      "rtcadncms.php": {
+        "type": "-",
+        "size": 4449,
+        "lmtime": 0,
+        "modified": false
+      },
+      "rtcadnotasfiscais.php": {
+        "type": "-",
+        "size": 89009,
+        "lmtime": 0,
+        "modified": true
+      },
+      "rtcadnotasfiscais2.php": {
+        "type": "-",
+        "size": 81530,
+        "lmtime": 0,
+        "modified": false
+      },
+      "rtcadnotasfornecedores.php": {
+        "type": "-",
+        "size": 117480,
+        "lmtime": 1685465374996.01,
+        "modified": true
+      },
+      "rtcadnotificacao.php": {
+        "type": "-",
+        "size": 10075,
+        "lmtime": 0,
+        "modified": false
+      },
+      "rtcadobra": {
+        "type": "-",
+        "size": 0,
+        "lmtime": 1685465381730.454,
+        "modified": false
+      },
+      "rtcadobras.php": {
+        "type": "-",
+        "size": 10767,
+        "lmtime": 1687291175887.618,
+        "modified": false
+      },
+      "rtcadordensproducao.php": {
+        "type": "-",
+        "size": 22386,
+        "lmtime": 0,
+        "modified": false
+      },
+      "rtcadpdvs.php": {
+        "type": "-",
+        "size": 14808,
+        "lmtime": 0,
+        "modified": true
+      },
+      "rtcadpedidoscompra.php": {
+        "type": "-",
+        "size": 19567,
+        "lmtime": 0,
+        "modified": false
+      },
+      "rtcadpedidosvenda(guga).php": {
+        "type": "-",
+        "size": 158907,
+        "lmtime": 0,
+        "modified": false
+      },
+      "rtcadpedidosvenda.php": {
+        "type": "-",
+        "size": 177398,
+        "lmtime": 1684771591716.4988,
+        "modified": true
+      },
+      "rtcadperfilfluxocaixa.php": {
+        "type": "-",
+        "size": 7154,
+        "lmtime": 0,
+        "modified": false
+      },
+      "rtcadpet.php": {
+        "type": "-",
+        "size": 6854,
+        "lmtime": 0,
+        "modified": false
+      },
+      "rtcadpet_GUGA copy.php": {
+        "type": "-",
+        "size": 6098,
+        "lmtime": 0,
+        "modified": false
+      },
+      "rtcadpet_GUGA.php": {
+        "type": "-",
+        "size": 6078,
+        "lmtime": 0,
+        "modified": false
+      },
+      "rtcadplanospagamento.php": {
+        "type": "-",
+        "size": 10316,
+        "lmtime": 1685119800298.829,
+        "modified": false
+      },
+      "rtcadprodutos.php": {
+        "type": "-",
+        "size": 99737,
+        "lmtime": 0,
+        "modified": true
+      },
+      "rtcadprovedorescustos.php": {
+        "type": "-",
+        "size": 4170,
+        "lmtime": 0,
+        "modified": false
+      },
+      "rtcadrecibo.php": {
+        "type": "-",
+        "size": 7494,
+        "lmtime": 0,
+        "modified": false
+      },
+      "rtcadrenegociacao.php": {
+        "type": "-",
+        "size": 41362,
+        "lmtime": 0,
+        "modified": true
+      },
+      "rtcadretornosbancarios.php": {
+        "type": "-",
+        "size": 50916,
+        "lmtime": 0,
+        "modified": false
+      },
+      "rtcadrotas.php": {
+        "type": "-",
+        "size": 4060,
+        "lmtime": 0,
+        "modified": false
+      },
+      "rtcadservicos.php": {
+        "type": "-",
+        "size": 8021,
+        "lmtime": 0,
+        "modified": false
+      },
+      "rtcadsetoresprodutos.php": {
+        "type": "-",
+        "size": 4152,
+        "lmtime": 0,
+        "modified": false
+      },
+      "rtcadsituacoescheques.php": {
+        "type": "-",
+        "size": 4169,
+        "lmtime": 0,
+        "modified": false
+      },
+      "rtcadsubgrupos.php": {
+        "type": "-",
+        "size": 4098,
+        "lmtime": 0,
+        "modified": false
+      },
+      "rtcadtabelasprecos.php": {
+        "type": "-",
+        "size": 5639,
+        "lmtime": 0,
+        "modified": false
+      },
+      "rtcadtecnicos.php": {
+        "type": "-",
+        "size": 7905,
+        "lmtime": 0,
+        "modified": false
+      },
+      "rtcadtiposcobranca.php": {
+        "type": "-",
+        "size": 4314,
+        "lmtime": 0,
+        "modified": false
+      },
+      "rtcadtitulospagar.php": {
+        "type": "-",
+        "size": 49249,
+        "lmtime": 0,
+        "modified": false
+      },
+      "rtcadtitulosreceber.php": {
+        "type": "-",
+        "size": 41149,
+        "lmtime": 0,
+        "modified": false
+      },
+      "rtcadtitulosreceberv2.php": {
+        "type": "-",
+        "size": 150577,
+        "lmtime": 0,
+        "modified": false
+      },
+      "rtcadtransferenciasfiliais.php": {
+        "type": "-",
+        "size": 17648,
+        "lmtime": 0,
+        "modified": false
+      },
+      "rtcadtransportadoras.php": {
+        "type": "-",
+        "size": 9442,
+        "lmtime": 0,
+        "modified": false
+      },
+      "rtcadunidades.php": {
+        "type": "-",
+        "size": 3738,
+        "lmtime": 0,
+        "modified": true
+      },
+      "rtcadusuarios--.php": {
+        "type": "-",
+        "size": 26898,
+        "lmtime": 0,
+        "modified": false
+      },
+      "rtcadusuarios.php": {
+        "type": "-",
+        "size": 27296,
+        "lmtime": 0,
+        "modified": false
+      },
+      "rtcadusuarios_sac.php": {
+        "type": "-",
+        "size": 9448,
+        "lmtime": 0,
+        "modified": false
+      },
+      "rtcadveiculos.php": {
+        "type": "-",
+        "size": 5595,
+        "lmtime": 0,
+        "modified": false
+      },
+      "rtcadvendedores.php": {
+        "type": "-",
+        "size": 9472,
+        "lmtime": 0,
+        "modified": true
+      },
+      "rtcatalogo.php": {
+        "type": "-",
+        "size": 8498,
+        "lmtime": 0,
+        "modified": true
+      },
+      "rtemrecibo.php": {
+        "type": "-",
+        "size": 4079,
+        "lmtime": 0,
+        "modified": false
+      },
+      "rtimprimecarne.php": {
+        "type": "-",
+        "size": 17668,
+        "lmtime": 0,
+        "modified": false
+      },
+      "rtimprimereciboavulso.php": {
+        "type": "-",
+        "size": 25337,
+        "lmtime": 0,
+        "modified": false
+      },
+      "rtimprimerecibopedido.php": {
+        "type": "-",
+        "size": 29577,
+        "lmtime": 0,
+        "modified": false
+      },
+      "rtimprimiraberturapdv.php": {
+        "type": "-",
+        "size": 10299,
+        "lmtime": 0,
+        "modified": false
+      },
+      "rtimprimirdocnfe.php": {
+        "type": "-",
+        "size": 784,
+        "lmtime": 0,
+        "modified": false
+      },
+      "rtimprimirentregaexternapedido.php": {
+        "type": "-",
+        "size": 26162,
+        "lmtime": 0,
+        "modified": false
+      },
+      "rtimprimiretiquetasvolumespedido.php": {
+        "type": "-",
+        "size": 19240,
+        "lmtime": 0,
+        "modified": true
+      },
+      "rtimprimirgarantia.php": {
+        "type": "-",
+        "size": 14117,
+        "lmtime": 0,
+        "modified": false
+      },
+      "rtimprimirguiarota.php": {
+        "type": "-",
+        "size": 13684,
+        "lmtime": 0,
+        "modified": false
+      },
+      "rtimprimirguiaseparacao.php": {
+        "type": "-",
+        "size": 91072,
+        "lmtime": 0,
+        "modified": true
+      },
+      "rtimprimirguiaseparacaorota.php": {
+        "type": "-",
+        "size": 15072,
+        "lmtime": 0,
+        "modified": false
+      },
+      "rtimprimirguiaseparacaosintetizada.php": {
+        "type": "-",
+        "size": 9773,
+        "lmtime": 0,
+        "modified": false
+      },
+      "rtimprimirmovlancamentopdv.php": {
+        "type": "-",
+        "size": 16374,
+        "lmtime": 0,
+        "modified": false
+      },
+      "rtimprimirpedido.php": {
+        "type": "-",
+        "size": 92639,
+        "lmtime": 0,
+        "modified": true
+      },
+      "rtimprimirpedido2.php": {
+        "type": "-",
+        "size": 77493,
+        "lmtime": 0,
+        "modified": false
+      },
+      "rtimprimirpedidocompra.php": {
+        "type": "-",
+        "size": 12070,
+        "lmtime": 0,
+        "modified": false
+      },
+      "rtimprimirpedidoguga.php": {
+        "type": "-",
+        "size": 83938,
+        "lmtime": 0,
+        "modified": false
+      },
+      "rtimprimirreneg": {
+        "type": "-",
+        "size": 14117,
+        "lmtime": 0,
+        "modified": false
+      },
+      "rtimprimirreneg.php": {
+        "type": "-",
+        "size": 17462,
+        "lmtime": 0,
+        "modified": false
+      },
+      "rtimprimirtransferencia.php": {
+        "type": "-",
+        "size": 11304,
+        "lmtime": 0,
+        "modified": false
+      },
+      "rtrelatorios.php": {
+        "type": "-",
+        "size": 249923,
+        "lmtime": 1684780276199.572,
+        "modified": true
+      },
+      "rtrelguiacobranca.php": {
+        "type": "-",
+        "size": 17182,
+        "lmtime": 0,
+        "modified": false
+      },
+      "scriptsatz": {},
+      "select2remoto.php": {
+        "type": "-",
+        "size": 1159,
+        "lmtime": 0,
+        "modified": false
+      },
+      "select2sql.php": {
+        "type": "-",
+        "size": 914,
+        "lmtime": 0,
+        "modified": false
+      },
+      "sistemasweb": {},
+      "temp": {},
+      "uploadfile.php": {
+        "type": "-",
+        "size": 2573,
+        "lmtime": 0,
+        "modified": false
+      },
+      "vendor": {},
+      "xmlimportacaotmp": {}
+    },
+    "css": {},
+    "devapp.tar.gz": {
+      "type": "-",
+      "size": 425969362,
+      "lmtime": 0,
+      "modified": false
+    },
+    "documentos": {},
+    "favicon.ico": {
+      "type": "-",
+      "size": 1150,
+      "lmtime": 0,
+      "modified": false
+    },
+    "fonts": {},
+    "healthweb": {},
+    "healthweb.zip": {
+      "type": "-",
+      "size": 2500,
+      "lmtime": 0,
+      "modified": false
+    },
+    "imagens": {},
+    "img": {},
+    "index.html": {
+      "type": "-",
+      "size": 1045,
+      "lmtime": 0,
+      "modified": false
+    },
+    "js": {},
+    "media": {},
+    "package-lock.json": {
+      "type": "-",
+      "size": 463211,
+      "lmtime": 1687456950452.3286,
+      "modified": false
+    },
+    "package-lock.zip": {
+      "type": "-",
+      "size": 41442237,
+      "lmtime": 0,
+      "modified": false
+    },
+    "package.json": {
+      "type": "-",
+      "size": 1595,
+      "lmtime": 1687456953880.0518,
+      "modified": false
+    },
+    "rillsoft_login.png": {
+      "type": "-",
+      "size": 64173,
+      "lmtime": 0,
+      "modified": false
+    },
+    "sacweb": {},
+    "sacweb-": {},
+    "sacweb-03-06-2023": {},
+    "sacweb.rar": {
+      "type": "-",
+      "size": 479319664,
+      "lmtime": 0,
+      "modified": true
+    },
+    "sistemasweb": {},
+    "sistemasweb-11-01-2023": {},
+    "sistemasweb-backup": {},
+    "sistemasweb-correnteguga": {},
+    "src": {},
+    "testeinter": {}
+  },
+  "$version": 1
+}
