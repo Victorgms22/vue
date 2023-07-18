@@ -1,0 +1,600 @@
+<template>
+  <div class="container-fluid" id="dvcrud">
+      <div class="row">
+          <div class="col-md-12">
+              <breadcrumb v-bind:bcitens="itensbc" v-bind:mtdcancelar="mtdcancelaredicao"></breadcrumb>
+          </div>
+          <div class="col-md-12">
+              <div id="pnlista" class="card" style="display: none;">
+                  <div class="card-header"><span id="titlista">LISTAGEM DE {{ itensbc.item1.titulo }}</span>
+                      <router-link to="/">
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                      </router-link>
+                  </div>
+                  <div class="card-body" style="padding: 10px;">
+                      <div class="row">
+                          <div class="col-sm-4 col-md-2 col-lg-2">
+                              <label for="cbopfiltro">Filtrar:</label>
+                              <select name="cbopfiltro" class="form-control form-control-sm" id="cbopfiltro" v-model="pfiltro" @change="mtdlimpar_listagem()">
+                                  <option value="0">Código</option>
+                                  <option value="1">Descrição</option>
+                              </select>
+                          </div>
+                          <div class="col-sm-8 col-md-6 col-lg-6">
+                              <label for="edconteudopesq">Conteúdo da pesquisa:</label>
+                              <input id="edconteudopesq" type="text" class="form-control form-control-sm" v-model="pconteudo" @keyup="mtdlimpar_listagem()">
+                          </div>
+                          <div class="col-6 col-sm-6 col-md-2 col-lg-2">
+                              <label for="cbqtdreg">Registros:</label>
+                              <select name="cbqtdreg" class="form-control form-control-sm" id="cbqtdreg" v-model="pqtdregistros" @change="mtdlimpar_listagem()">
+                                  <option value="10">10</option>
+                                  <option value="20">20</option>
+                                  <option value="30">30</option>
+                                  <option value="40">40</option>
+                                  <option value="50">50</option>
+                                  <option value="99999999999">Todos</option>
+                              </select>
+                          </div>
+                          <div class="col-6 col-sm-6 col-md-2 col-lg-2">
+                              <button type="button" id="btlistar" class="btn btn-primary btn-sm btn-block" @click.prevent="mtdexecutapesquisa()"><i class="fa fa-search"></i> Listar</button>
+                          </div>
+                          <div class="col-md-12" style="margin-top: 10px;">
+                              <vue-bootstrap4-table
+                                      :rows="lstbairros"
+                                      :columns="columns"
+                                      :config="config"
+                                      :classes="classes">
+                                  <template slot="empty-results">
+                                      <div class="col-md-12 text-center">Sem dados para visualização</div>
+                                  </template>
+                                  <!-- ícones de ordenação da table -->
+                                  <template slot="sort-asc-icon">
+                                      <i class="fa-icones-ordenacao fa fa-sort-asc"></i>
+                                  </template>
+                                  <template slot="sort-desc-icon">
+                                      <i class="fa-icones-ordenacao fa fa-sort-desc"></i>
+                                  </template>
+                                  <template slot="no-sort-icon">
+                                      <i class="fa-icones-ordenacao fa fa-unsorted"></i>
+                                  </template>                                    
+                                  <!--  -->                                    
+                                  <template slot="id_f" slot-scope="item">
+                                      {{ item.row.id }}
+                                  </template>
+                                  <template slot="opcoes" slot-scope="item">
+                                      <button type="button" class="btn btn-info btn-sm btn-opcrud ajt-btn" @click.prevent="mtdalterar(item.row)"><i class="fa fa-edit"></i></button>
+                                      <button type="button" class="btn btn-danger btn-sm btn-opcrud ajt-btn" @click.prevent="mtdexcluir(item.row)"><i class="fa fa-trash"></i></button>
+                                  </template>
+                              </vue-bootstrap4-table>
+                          </div>
+                          <div class="col-md-12">
+                              <ul class="list-group">
+                                  <li class="list-group-item d-flex justify-content-between align-items-center" style="padding: 10px;">
+                                      Registros
+                                      <span class="badge badge-info badge-pill text-right bdg-qtd-reg-info">{{lstbairros.length}}</span>
+                                  </li>
+                              </ul>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="card-footer" style="padding: 10px;">
+                      <div class="row">
+                          <div class="col-8 col-sm-8 col-md-10 col-lg-10" id="dvpaginacao">
+                              <v-pagination
+                                      v-model="pagina_atual"
+                                      :page-count="pqtd_paginas"
+                                      :classes="bootstrapPaginationClasses">
+                              </v-pagination>
+                          </div>
+                          <div class="col-4 col-sm-4 col-md-2 col-lg-2">
+                              <button type="button" class="btn btn-success btn-sm btn-block" @click.prevent="mtdnovo()"><i class="fa fa-file"></i> Novo</button>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              <div id="pncadastro" class="card" style="display:none;">
+                  <div class="card-header"><span>{{itensbc.item2.titulo}}</span>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close" @click.prevent="mtdcancelaredicao()"><span aria-hidden="true">&times;</span></button>
+                  </div>
+                  <div class="card-body">
+                      <div class="row">
+                          <div class="col-sm-12 col-md-2 col-lg-2">
+                              <label for="edid">Código:</label>
+                              <input type="text" class="form-control form-control-sm" id="edid" v-model="vid"
+                                     maxlength="20" disabled/>
+                          </div>
+                          <div class="col-sm-12 col-md-10 col-lg-10">
+                              <label for="eddescricao">*Descrição:</label>
+                              <input type="text" v-model="vdescricao" v-bind:disabled="ativadesativa"
+                                     class="form-control form-control-sm" id="eddescricao" maxlength="50">
+                          </div>
+                      </div>
+                  </div>
+                  <div class="card-footer">
+                      <div class="row">
+                          <div class="col-sm-8">
+                              <h5 style="font-size: 16px; color: #545b62; margin-top: 5px;"><strong>Campos com asterisco(*) devem ser informados</strong>.</h5>
+                          </div>
+                                  <div class="col-sm-2">
+                              <button id="btgravar" v-if="(opcrud == 1)" type="button" @click.prevent="mtdgravar()"
+                                      v-bind:disabled="validou" class="btn btn-primary btn-sm"
+                                      style="width:100%; margin-bottom:10px;"><i class="fa fa-check"></i> Gravar
+                              </button>
+                              <button id="btgravar" v-else-if="(opcrud == 2)" type="button" @click.prevent="mtdgravar()"
+                                      v-bind:disabled="validou" class="btn btn-primary btn-sm"
+                                      style="width:100%; margin-bottom:10px;"><i class="fa fa-check"></i> Alterar
+                              </button>
+                              <button id="btgravar" v-else-if="(opcrud == 3)" type="button" @click.prevent="mtdgravar()"
+                                      v-bind:disabled="validou" class="btn btn-primary btn-sm"
+                                      style="width:100%; margin-bottom:10px;"><i class="fa fa-check"></i> Excluir
+                              </button>
+                          </div>
+                          <div class="col-sm-2">
+                              <button type="button" @click.prevent="mtdcancelaredicao()" class="btn btn-secondary btn-sm" style="width:100%">
+                                  <i class="fa fa-close"></i> Cancelar
+                              </button>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</template>
+
+
+<script>
+// Importação dos componentes e módulos necessários
+import BreadCrumb from '../components/cmpbreadcrumb.vue';
+import VueBootstrap4Table from 'vue-bootstrap4-table';
+import vPagination from 'vue-plain-pagination';
+import util from '../utilitarios/util.js';
+
+export default {
+  name: 'caddepartamento',
+  components: {
+    VueBootstrap4Table,
+    vPagination,
+    'breadcrumb': BreadCrumb
+  },
+  data: function () {
+    return {
+      lstbairros: [], // Lista de bairros retornada da pesquisa
+      pfiltro: 1, // Filtro de pesquisa selecionado (1 para descrição, 0 para código)
+      pconteudo: '', // Conteúdo da pesquisa
+      pqtdregistros: 10, // Quantidade de registros por página na listagem
+      pqtd_paginas: 1, // Quantidade total de páginas
+      pagina_atual: 1, // Página atual exibida na listagem
+      pqtd_total_registros: 0, // Quantidade total de registros encontrados na pesquisa
+
+      // Variáveis do CRUD
+      opcrud: 0, // Tipo de operação de CRUD (0: nenhuma, 1: inclusão, 2: atualização, 3: exclusão)
+      vid: '', // ID do registro sendo editado
+      vdescricao: '', // Descrição do registro sendo editado
+
+      // Variável para habilitação/desabilitação dos campos do formulário
+      ativadesativa: true,
+
+      bootstrapPaginationClasses: {
+        ul: 'pagination pagination-sm',
+        li: 'page-item',
+        liActive: 'active',
+        liDisable: 'disabled',
+        button: 'page-link'
+      },
+
+      itensbc: {
+        item1: {
+          titulo: 'BAIRROS', // Título do breadcrumb para a página atual
+          ativo: false // Indicador se o item do breadcrumb está ativo
+        },
+        item2: {
+          titulo: '', // Título do breadcrumb para a página de cadastro/edição
+          ativo: false // Indicador se o item do breadcrumb está ativo
+        }
+      },
+
+      // Colunas da tabela de listagem
+      columns: [
+        {
+          label: 'Opções',
+          name: 'opcoes',
+          row_text_alignment: 'text-center',
+          column_text_alignment: 'text-center',
+          row_classes: 'def-col-opcoes',
+          sort: false // Desabilita a ordenação para essa coluna
+        },
+        {
+          label: 'Código',
+          name: 'id',
+          sort: true, // Habilita a ordenação para essa coluna
+          slot_name: 'id_f', // Nome do slot personalizado que será usado para exibir o valor do campo
+          row_classes: 'def-col-cod' // Classes CSS adicionadas às células dessa coluna
+        },
+        {
+          label: 'Descrição',
+          name: 'descricao',
+          initial_sort: true, // Indica que a coluna será iniciada ordenada
+          initial_sort_order: 'asc', // Ordem inicial da coluna (ascendente)
+          sort: true, // Habilita a ordenação para essa coluna
+          row_text_alignment: 'text-left',
+          column_text_alignment: 'text-left'
+        }
+      ],
+
+      // Configurações da tabela de listagem
+      config: {
+        pagination: false, // Paginação desabilitada, pois a tabela já possui paginação customizada
+        pagination_info: false, // Informações de paginação desabilitadas
+        card_mode: false, // Modo de card desabilitado
+        global_search: {
+          visibility: false // Pesquisa global desabilitada
+        },
+        show_refresh_button: false, // Botão de atualização desabilitado
+        show_reset_button: false // Botão de reset desabilitado
+      },
+
+      // Classes CSS personalizadas para a tabela de listagem
+      classes: {
+        table: 'table-bordered table-striped table-sm'
+      }
+    };
+  },
+  methods: {
+    // Função para gerar o filtro da pesquisa com base nos campos selecionados
+    mtdfiltropesquisa() {
+      let rfiltro = '';
+      if (parseInt(this.pfiltro) === 0) {
+        rfiltro = this.pconteudo === '' ? '' : ' and id=' + this.pconteudo;
+      } else {
+        rfiltro = this.pconteudo === '' ? '' : ' and upper(descricao) like upper("' + this.pconteudo + '%")';
+      }
+      return rfiltro;
+    },
+
+    // Função para executar a pesquisa dos registros com base no filtro selecionado
+    mtdexecutapesquisa() {
+      var vself = this;
+      let filtro = vself.mtdfiltropesquisa();
+      this.pagina_atual = 1;
+      let parametros = [
+        { parametro: 'idclientesac', valor: vself.$store.state.filialpadrao.idcliente },
+        { parametro: 'op', valor: 'qtdregistros' },
+        { parametro: 'filtro', valor: filtro }
+      ];
+      let retorno = util.reqaxios(parametros, 'post', vself.$store.state.usuario.adrsrv + '/controller/rtcaddepartamento.php');
+      console.log(retorno);
+      retorno
+        .then(function (response) {
+          vself.pqtd_total_registros = parseInt(response.data.qtdregistros);
+          let qtdpg = Math.ceil(vself.pqtd_total_registros / vself.pqtdregistros);
+          vself.pqtd_paginas = qtdpg > 0 ? qtdpg : 1;
+          vself.mtdcarregabairros(1);
+        })
+        .catch(function (response) {
+          alert('Erro ao consultar registros');
+        });
+    },
+
+    // Função para carregar os bairros a serem exibidos na listagem
+    mtdcarregabairros(ipagina) {
+      var vself = this;
+      let loader = this.$loading.show();
+      let filtro = vself.mtdfiltropesquisa();
+      let parametros = [
+        { parametro: 'idclientesac', valor: vself.$store.state.filialpadrao.idcliente },
+        { parametro: 'op', valor: 'listagem' },
+        { parametro: 'filtro', valor: filtro },
+        { parametro: 'limit', valor: vself.pqtdregistros },
+        { parametro: 'offset', valor: (parseInt(ipagina) - 1) * parseInt(vself.pqtdregistros) }
+      ];
+      let retorno = util.reqaxios(parametros, 'post', vself.$store.state.usuario.adrsrv + '/controller/rtcaddepartamento.php');
+      retorno
+        .then(function (response) {
+          vself.lstbairros = response.data;
+          loader.hide();
+        })
+        .catch(function (response) {
+          vself.lstbairros = [];
+          loader.hide();
+        });
+    },
+
+    // Função para resetar os campos do formulário de cadastro/edição
+    resetarDados() {
+      util.toTop();
+
+      this.vid = '';
+      this.vdescricao = '';
+    },
+
+    // Função para configurar o estado inicial do painel de cadastro/edição
+    mtddefault() {
+      $('#pnlista').hide();
+      this.resetarDados();
+      $('#pncadastro').fadeIn(700);
+      this.$nextTick(function () {
+        if (parseInt(this.opcrud) < 3) {
+          $('#eddescricao').focus();
+        } else {
+          $('#btgravar').focus();
+        }
+      });
+    },
+
+    // Função para preparar o formulário para realização de operações de CRUD
+    mtdpreparacrud(op) {
+      let vself = this;
+      vself.opcrud = op;
+      $('.nav-tabs a[href="#dvperfil"]').tab('show');
+      vself.mtddefault();
+    },
+
+    // Função para criar um novo registro
+    mtdnovo() {
+      if (!util.opcaousuario('001Z.003Z.001Z', this.$store.state.perfilusuario)) {
+        this.$toastr.i('Acesso não permitido para o usuário!', 'Informação!');
+      } else {
+        this.itensbc.item2.titulo = 'INCLUSÃO DE BAIRROS';
+        this.itensbc.item1.ativo = true;
+        this.itensbc.item2.ativo = true;
+        this.ativadesativa = false;
+        this.mtdpreparacrud(1);
+      }
+    },
+
+    // Função para cancelar a edição de um registro
+    mtdcancelaredicao() {
+      this.itensbc.item1.ativo = false;
+      this.itensbc.item2.ativo = false;
+      $('#pncadastro').hide();
+      $('#pnlista').fadeIn(700);
+      $('#edconteudopesq').focus();
+      setTimeout(function () {
+        util.toTop();
+      }, 200);
+    },
+
+    // Função para limpar a listagem de registros
+    mtdlimpar_listagem() {
+      this.lstbairros = [];
+      this.pagina_atual = 1;
+      this.filtro = '';
+      this.pqtd_total_registros = 0;
+      this.pqtd_paginas = 0;
+    },
+
+    // Função para realizar a operação de gravação (inclusão, atualização ou exclusão)
+    mtdgravar() {
+      let vself = this;
+      $.confirm({
+        title: 'Confirmação!',
+        content: 'Confirma ' + vself.itensbc.item2.titulo + '?',
+        icon: 'fa fa-question-circle',
+        escapeKey: true,
+        backgroundDismiss: false,
+        escapeKey: 'nao',
+        type: 'dark',
+        typeAnimated: true,
+        buttons: {
+          sim: {
+            text: '<u>S</u>im',
+            keys: ['s', 'S'],
+            btnClass: 'btn-blue',
+            action: function () {
+              $('.btn-blue').prop('disabled', true);
+              vself.mtdregistro();
+            }
+          },
+          nao: {
+            text: '<u>N</u>ão',
+            keys: ['n', 'N'],
+            action: function () {
+              $('#btgravar').focus();
+            }
+          }
+        }
+      });
+    },
+
+    // Função para localizar o registro a ser alterado ou excluído
+    mtdlocalizaregistro(id) {
+      var vself = this;
+      let loader = vself.$loading.show();
+      let filtro = ' and id='+id;
+      let parametros = [
+        { parametro: 'op', valor: 'listagem' },
+        { parametro: 'idclientesac', valor: vself.$store.state.filialpadrao.idcliente },
+        { parametro: 'filtro', valor: filtro },
+        { parametro: 'limit', valor: 1 },
+        { parametro: 'offset', valor: 0 }
+      ];
+      let retorno = util.reqaxios(parametros, 'post', vself.$store.state.usuario.adrsrv + '/controller/rtcaddepartamento.php');
+      retorno
+        .then(function (response) {
+          loader.hide();
+          vself.mtdigualarcampos(response.data[0]);
+          if (parseInt(vself.opcrud) < 3) {
+            $('#eddescricao').focus();
+          } else {
+            $('#btgravar').focus();
+          }
+        })
+        .catch(function (response) {
+          loader.hide();
+        });
+    },
+
+    // Função para preparar o formulário para a operação de atualização de um registro
+    mtdalterar(item) {
+      if (!util.opcaousuario('001Z.003Z.002Z', this.$store.state.perfilusuario)) {
+        this.$toastr.i('Acesso não permitido para o usuário!', 'Informação!');
+      } else {
+        this.itensbc.item2.titulo = 'ALTERAÇÃO DE BAIRROS';
+        this.itensbc.item1.ativo = true;
+        this.itensbc.item2.ativo = true;
+        this.ativadesativa = false;
+        this.mtdpreparacrud(2);
+        this.mtdlocalizaregistro(item.id);
+      }
+    },
+
+    // Função para preparar o formulário para a operação de exclusão de um registro
+    mtdexcluir(item) {
+      if (!util.opcaousuario('001Z.003Z.003Z', this.$store.state.perfilusuario)) {
+        this.$toastr.i('Acesso não permitido para o usuário!', 'Informação!');
+      } else {
+        this.itensbc.item2.titulo = 'EXCLUSÃO DE BAIRROS';
+        this.itensbc.item1.ativo = true;
+        this.itensbc.item2.ativo = true;
+        this.ativadesativa = true;
+        this.mtdpreparacrud(3);
+        this.mtdlocalizaregistro(item.id);
+      }
+    },
+
+    // Função para igualar os campos do formulário aos valores do registro a ser alterado
+    mtdigualarcampos(registro) {
+      this.vid = registro.id;
+      this.vdescricao = registro.descricao;
+    },
+
+    // Função para realizar a operação de gravação (inclusão, alteração ou exclusão) do registro
+    mtdregistro() {
+      let vself = this;
+      let loader = vself.$loading.show();
+      let registrocrud = {
+        'id': this.vid,
+        'descricao': this.vdescricao
+      };
+      let parametros = [
+        { parametro: 'idclientesac', valor: vself.$store.state.filialpadrao.idcliente },
+        { parametro: 'op', valor: 'rotinacrud' },
+        { parametro: 'opcrud', valor: vself.opcrud },
+        { parametro: 'registro', valor: JSON.stringify(registrocrud) },
+        { parametro: 'idfilial', valor: vself.$store.state.filialpadrao.codfil },
+        { parametro: 'idusuario', valor: vself.$store.state.usuario.id },
+        { parametro: 'codop', valor: parseInt(this.opcrud) === 1 ? '001Z.003Z.001Z' : parseInt(this.opcrud) === 2 ? '001Z.003Z.002Z' : '001Z.003Z.003Z' },
+      ];
+      let retorno = util.reqaxios(parametros, 'post', vself.$store.state.usuario.adrsrv + '/controller/rtcaddepartamento.php');
+      retorno
+        .then(function (response) {
+          loader.hide();
+          if ($.isNumeric(response.data)) {
+            vself.$toastr.s('Registro processado com sucesso!', 'Informação!');
+            vself.pfiltro = 0;
+            vself.pconteudo = parseInt(vself.opcrud) === 1 ? response.data : vself.vid;
+            vself.pqtd_paginas = 1;
+            vself.mtdcancelaredicao();
+            vself.mtdcarregabairros(1);
+          } else {
+            let tpret = response.data.substring(0, 1);
+            switch (tpret) {
+              case 'I':
+                vself.$toastr.w(response.data.substring(4), 'Atenção!');
+                break;
+              case 'E':
+              default:
+                vself.$toastr.e(response.data.substring(4), 'Erro!');
+                break;
+            }
+          }
+        })
+        .catch(function (response) {
+          loader.hide();
+          vself.$toastr.e('Erro ao processar o registo. Descrição do erro: ' + response.message, 'Erro!');
+        });
+    }
+  },
+  mounted: function () {
+    if (util.verificasessao(this)) {
+      let vself = this;
+      let loader = vself.$loading.show();
+      let parametros = [
+        { parametro: 'op', valor: 'dadosusuario' },
+        { parametro: 'idclientesac', valor: vself.$store.state.usuario.idclientesac },
+        { parametro: 'idusuario', valor: vself.$store.state.usuario.id }
+      ];
+      let retorno = util.reqaxios(parametros, 'post', vself.$store.state.usuario.adrsrv + '/controller/rotinasusuario.php');
+      retorno
+        .then(function (response) {
+          loader.hide();
+          vself.$store.commit('MUDAR_PERFIL_USUARIO', response.data.perfilusu);
+          if (util.opcaousuario('001Z.003Z', vself.$store.state.perfilusuario)) {
+            $('#pnlista').fadeIn(700);
+            vself.mtdexecutapesquisa();
+          } else {
+            vself.$toastr.i('Acesso não permitido para o usuário!', 'Informação!');
+            setTimeout(function () {
+              util.gotoprincipal();
+            }, 1000);
+          }
+        })
+        .catch(function (response) {
+          loader.hide();
+          console.log(response.message);
+        });
+    }
+  },
+  computed: {
+    // Computed property que verifica se os campos do formulário foram preenchidos corretamente
+    validou() {
+      return this.vdescricao === '';
+    }
+  },
+  watch: {
+    // Watcher para observar a mudança de página e carregar os registros da página selecionada
+    pagina_atual(val) {
+      this.mtdcarregabairros(val);
+    }
+  }
+};
+</script>
+
+<style>
+  .def-col-cod{
+      width: 80px !important;
+  }
+  #btclonarperfilusuario{
+      cursor: pointer;
+      font-weight: bold;
+      font-size: 18px;
+      position: relative;
+      float: right;
+      top: 5px;
+      transition: .35s;
+  }
+  #btmarcartodosopusuario{
+      font-weight: bold;
+      font-size: 18px;
+      padding-right: 10px;
+      cursor: pointer;
+      position: relative;
+      float: right;
+      top: 5px;
+      transition: .35s;
+  }
+  #btmarcartodosopusuario:hover{
+      color: #666666;
+      transition: .35s;
+  }
+
+  #btmarcartodfiliais{
+      font-weight: bold;
+      font-size: 18px;
+      padding-right: 10px;
+      cursor: pointer;
+      position: relative;
+      float: right;
+      top: 5px;
+      transition: .35s;
+  }
+  #btmarcartodfiliais:hover{
+      color: #666666;
+      transition: .35s;
+  }
+  #btclonarperfilusuario:hover{
+      color: #666666;
+      transition: .35s;
+  }
+</style>
